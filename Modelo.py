@@ -1,7 +1,6 @@
 import mysql.connector
-import random 
+import random  
 class modelo: 
-    enfermedades = []
     def __init__(self, nombre, sintomas, especialista, tratamiento, id_enfermedad ):
         self.__login = "admin123"
         self.__password = "contrasena123"
@@ -64,47 +63,29 @@ class modelo:
     def tratamiento(self):
         return self.__tratamiento
     
-    def agregar_enfermedad(self, nombre, sintomas, especialista,tratamiento, id_enfermedad):
-        if not self.verificar_existencia(id_enfermedad):
-            enfermedad = (nombre, sintomas, especialista,tratamiento, id_enfermedad)
-            self.enfermedades.append(enfermedad)
-            self.guardar__enfermedad("enfermedades.json")
-            return True
-        else: 
-             return False
-    
-    def verificar_existencia(self, id_enfermedad):
-        for enfermedad in self.pacientes:
-            if enfermedad[3] == id_enfermedad:
-                return True
-        return False
-    
-    def guardar_enfermedad(self, archivo):
-       enfermedad_json = [
-           {
-               "nombre" : enfermedad[0],
-               "apellido": enfermedad[1],
-               "edad": enfermedad[2],
-               "ID" : enfermedad[3]
-           }
-           for enfermedad in self.enferdad
-       ]
-       with open(archivo, 'w') as f:
-           json.dump(enfermedad_json, f, indent=2)
-    
-    def cargar_pacientes_desde_archivo(self, archivo):
-        self.pacientes = []
-        with open(archivo, 'r') as f:
-            pacientes_json = json.load(f)
+    def agregar_enfermedad(self):
+        sql = "INSERT INTO enfermedades (nombre, sintomas, especialista, tratamiento) VALUES (%s, %s, %s, %s)"
+        values = (self.__nombre, self.__sintomas, self.__especialista, self.__tratamiento)
+        self.__cursor.execute(sql, values)
+        self.__cnx.commit()
+        return "Enfermedad agregada con éxito."
 
-            for paciente_json in pacientes_json:
-                paciente = (
-                    paciente_json["nombre"],
-                    paciente_json["apellido"],
-                    paciente_json["edad"],
-                    paciente_json["ID"]
-                )
-                self.pacientes.append(paciente)
+    def borrar_enfermedad(self, id_enfermedad):
+        sql = "DELETE FROM enfermedades WHERE id_enfermedad = %s"
+        value = (id_enfermedad,)
+        self.__cursor.execute(sql, value)
+        self.__cnx.commit()
+        return "Enfermedad borrada con éxito."
+
+    def buscar_enfermedad(self, id_enfermedad):
+        sql = "SELECT * FROM enfermedades WHERE id_enfermedad = %s"
+        value = (id_enfermedad,)
+        self.__cursor.execute(sql, value)
+        result = self.__cursor.fetchone()
+        if result:
+            print("Enfermedad encontrada:", result)
+        else:
+            print("Enfermedad no encontrada.")
     
 
     
