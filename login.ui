@@ -132,11 +132,20 @@ padding-bottom:7px; </string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-font: 75 12pt &quot;Times New Roman&quot;;
-border:none;
-border-bottom:2px solid rgba(46,82,101,200);
-border-radius: 15px;</string>
+     <string notr="true">QPushButton {
+    font: 75 12pt &quot;Times New Roman&quot;;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-bottom: 2px solid rgba(46, 82, 101, 200);
+    color: rgba(0, 0, 0, 240);
+    padding-bottom: 7px;
+    border-radius: 15px;
+}
+
+QPushButton:hover {
+  
+	background-color: rgb(255, 255, 0);
+}</string>
     </property>
     <property name="text">
      <string>Ingresar</string>

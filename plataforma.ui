@@ -531,7 +531,7 @@ QPushButton:hover {
              <string notr="true">background-color: rgb(0, 0, 0);</string>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="inicio">
              <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -788,6 +788,25 @@ QPushButton:pressed {
                   <bool>true</bool>
                  </property>
                 </widget>
+                <widget class="QLabel" name="label_8">
+                 <property name="geometry">
+                  <rect>
+                   <x>210</x>
+                   <y>0</y>
+                   <width>81</width>
+                   <height>71</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>imagenes/10803147.png</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </widget>
               </item>
              </layout>
@@ -871,6 +890,29 @@ QPushButton:hover {
                   <string>CONFIRMAR</string>
                  </property>
                 </widget>
+                <widget class="QLabel" name="label_7">
+                 <property name="geometry">
+                  <rect>
+                   <x>500</x>
+                   <y>-10</y>
+                   <width>81</width>
+                   <height>71</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>imagenes/10803147.png</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+                <zorder>label_7</zorder>
+                <zorder>pregunta1</zorder>
+                <zorder>respuesta1</zorder>
+                <zorder>confirmar1</zorder>
                </widget>
               </item>
               <item>
@@ -1112,7 +1154,180 @@ QPushButton:hover {
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="paginvestiga"/>
+            <widget class="QWidget" name="paginvestiga">
+             <widget class="QFrame" name="frame_8">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>150</y>
+                <width>531</width>
+                <height>51</height>
+               </rect>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QPushButton" name="confirmar1_2">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>10</y>
+                 <width>521</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    font: 75 12pt &quot;Times New Roman&quot;;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-bottom: 2px solid rgba(46, 82, 101, 200);
+    color: rgba(0, 0, 0, 240);
+    padding-bottom: 7px;
+    border-radius: 15px;
+}
+
+QPushButton:hover {
+  
+	background-color: rgb(255, 255, 0);
+}</string>
+               </property>
+               <property name="text">
+                <string>Selecciona para AGREGAR una enfermedad a la base de datos</string>
+               </property>
+              </widget>
+             </widget>
+             <widget class="QFrame" name="frame_9">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>220</y>
+                <width>531</width>
+                <height>51</height>
+               </rect>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QPushButton" name="confirmar1_3">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>10</y>
+                 <width>521</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    font: 75 12pt &quot;Times New Roman&quot;;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-bottom: 2px solid rgba(46, 82, 101, 200);
+    color: rgba(0, 0, 0, 240);
+    padding-bottom: 7px;
+    border-radius: 15px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 0, 127);
+}</string>
+               </property>
+               <property name="text">
+                <string>Selecciona para BUSCAR una enfermedad en base de datos</string>
+               </property>
+              </widget>
+             </widget>
+             <widget class="QFrame" name="frame_10">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>290</y>
+                <width>531</width>
+                <height>51</height>
+               </rect>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QPushButton" name="confirmar1_4">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>10</y>
+                 <width>521</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    font: 75 12pt &quot;Times New Roman&quot;;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-bottom: 2px solid rgba(46, 82, 101, 200);
+    color: rgba(0, 0, 0, 240);
+    padding-bottom: 7px;
+    border-radius: 15px;
+}
+
+QPushButton:hover {
+   
+	background-color: rgb(0, 255, 255);
+}</string>
+               </property>
+               <property name="text">
+                <string>Selecciona para BORRAR una enfermedad a la base de datos</string>
+               </property>
+              </widget>
+             </widget>
+             <widget class="QLabel" name="label_4">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>30</y>
+                <width>511</width>
+                <height>91</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 170, 127);
+font: 75 14pt &quot;Segoe Script&quot;;
+ border-radius: 20px;
+</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;¡¡¡¡Es hora de investigar e interaccionar un poco,&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;con las enfermedades cerebrales!!!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_5">
+              <property name="geometry">
+               <rect>
+                <x>250</x>
+                <y>370</y>
+                <width>111</width>
+                <height>91</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>imagenes/10803147.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
            </widget>
           </item>
          </layout>
