@@ -24,8 +24,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 170, 127);
-border-radius: 35px;</string>
+     <string notr="true">border-radius: 35px;
+background-color: rgb(170, 85, 0);</string>
     </property>
     <widget class="QFrame" name="frame">
      <property name="geometry">
@@ -48,10 +48,10 @@ border-radius: 35px;</string>
      <widget class="QLineEdit" name="CODIGO">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>300</x>
         <y>30</y>
         <width>211</width>
-        <height>51</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
