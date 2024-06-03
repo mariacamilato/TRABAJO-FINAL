@@ -64,7 +64,7 @@ class modelo:
         return self.__tratamiento
     
     def agregar_enfermedad(self,id_enfermedad,nombre, sintomas,especialista,tratamiento):
-        sql = "INSERT INTO enfermedades (id_enfermedad,nombre, sintomas, especialista, tratamiento) VALUES (%s, %s, %s, %s)"
+        sql = "INSERT INTO enfermedades (id_enfermedad,nombre, sintomas, especialista, tratamiento) VALUES (%s, %s, %s, %s, %s)"
         values = (id_enfermedad,nombre,sintomas,especialista,tratamiento)
         self.__cursor.execute(sql, values)
         self.__cnx.commit()

@@ -145,7 +145,6 @@ class Plataforma(QMainWindow):
         ventana.set_coordinador(self.coordinador)
         ventana.show()
     
-
     def buscar_enfermedad(self):
         ventana = buscar_E(self)
         ventana.set_coordinador(self.coordinador)
