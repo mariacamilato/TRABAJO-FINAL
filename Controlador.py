@@ -22,7 +22,8 @@ class Coordinador:
         return preguntas
     
     def ingresarInfo(self,a,b,c,d,e):
-        self.__miModelo.agregar_enfermedad(a,b,c,d,e)
+        resultado=self.__miModelo.agregar_enfermedad(a,b,c,d,e)
+        return resultado
     
     def buscarEnfermedad(self,nombre):
         resultado=self.__miModelo.buscar_enfermedad(nombre)

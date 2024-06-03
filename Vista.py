@@ -436,10 +436,15 @@ class agregrar_E(QMainWindow):
     
     def guardarEnfermedad(self):
         ide=self.codigo.text()
+        nombre=self.nombre.text()
+        sintomas=self.sintomas.text()
+        especialista=self.especialistas.text()
+        tratamiento=self.tratamiento.text()
         resultado=self.coordinador.ingresarInfo(ide,nombre,sintomas,tratamiento,especialista)
         if resultado == "Error: Ya existe una enfermedad con el mismo ID.":
             QMessageBox.information(self,"" ,"Error: Ya existe una enfermedad con el mismo ID.")
         else:
+            ide=self.codigo.text()
             nombre=self.nombre.text()
             sintomas=self.sintomas.text()
             especialista=self.especialistas.text()
@@ -469,7 +474,7 @@ class buscar_E(QMainWindow):
     def buscarEnfermedad(self):
         nombre=self.nombre.text()
         resultado=self.coordinador.buscarEnfermedad(nombre)
-        if resultado == "Enfermedad no encontrada.":
+        if resultado is None:
             QMessageBox.information(self,"" ,"¡No hay ningúna enfermedad que coincida!")
         else:
             self.informacion.setText(str(resultado))

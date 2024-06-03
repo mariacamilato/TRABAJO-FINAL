@@ -92,11 +92,7 @@ class modelo:
         self.__cursor.execute(sql, value)
         result = self.__cursor.fetchone()
         if result:
-            return result
-        else:
-            return "Enfermedad no encontrada."
-    
-
+           return result if result else None
 
 
     
