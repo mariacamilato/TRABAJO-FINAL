@@ -33,7 +33,6 @@ class Coordinador:
         resultado=self.__miModelo.borrar_enfermedad(ide)
         return resultado
 
-
 def main():
     app=QApplication(sys.argv)
     vista=Login()

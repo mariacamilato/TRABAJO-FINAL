@@ -494,11 +494,10 @@ class borrar_E(QMainWindow):
     def borrarEnfermedad(self):
         codigo=self.CODIGO.text()
         resultado=self.coordinador.borrarEnfermedad(codigo)
-        if resultado == "Enfermedad borrada con éxito.":
-            QMessageBox.information(self,"" ,"¡Enfermedad borrada con éxito de la base!")
-        else:
+        if resultado is not "Enfermedad borrada con éxito.":
             QMessageBox.information(self,"" ,"¡No hay ningúna enfermedad que coincida!")
-
+        else:
+            QMessageBox.information(self,"" ,"¡Enfermedad borrada con éxito de la base!")
     
 
         

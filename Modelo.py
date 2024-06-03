@@ -79,11 +79,18 @@ class modelo:
             return "Enfermedad agregada con éxito."
 
     def borrar_enfermedad(self, id_enfermedad):
-        sql = "DELETE FROM enfermedades WHERE id_enfermedad = %s"
-        value = (id_enfermedad,)
-        self.__cursor.execute(sql, value)
+        sql_check = "SELECT id_enfermedad FROM enfermedades WHERE id_enfermedad = %s"
+        value_check = (id_enfermedad,)
+        self.__cursor.execute(sql_check, value_check)
+        existe = self.__cursor.fetchone()
+        if not existe:
+            return "Error: No se encontró ninguna enfermedad con la ID proporcionada."
+        sql_delete = "DELETE FROM enfermedades WHERE id_enfermedad = %s"
+        value_delete = (id_enfermedad,)
+        self.__cursor.execute(sql_delete, value_delete)
         self.__cnx.commit()
-        return "Enfermedad borrada con éxito."
+        return "Enfermedad borrada"
+
 
     def buscar_enfermedad(self, nombre):
         sql = "SELECT * FROM enfermedades WHERE id_enfermedad = %s"
