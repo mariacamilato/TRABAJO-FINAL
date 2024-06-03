@@ -149,7 +149,6 @@ class Plataforma(QMainWindow):
         ventana = buscar_E(self)
         ventana.set_coordinador(self.coordinador)
         ventana.show()
-        ventana.mostrar() 
     
     def borrar_enfermedad(self):
         ventana = borrar_E(self)
@@ -437,12 +436,16 @@ class agregrar_E(QMainWindow):
     
     def guardarEnfermedad(self):
         ide=self.codigo.text()
-        nombre=self.nombre.text()
-        sintomas=self.sintomas.text()
-        especialista=self.especialistas.text()
-        tratamiento=self.tratamiento.text()
-        self.coordinador.ingresarInfo(ide,nombre,sintomas,tratamiento,especialista)
-        QMessageBox.information(self,"" ,"¡Enfermedad ingresada a la base con éxito!")
+        resultado=self.coordinador.ingresarInfo(ide,nombre,sintomas,tratamiento,especialista)
+        if resultado == "Error: Ya existe una enfermedad con el mismo ID.":
+            QMessageBox.information(self,"" ,"Error: Ya existe una enfermedad con el mismo ID.")
+        else:
+            nombre=self.nombre.text()
+            sintomas=self.sintomas.text()
+            especialista=self.especialistas.text()
+            tratamiento=self.tratamiento.text()
+            self.coordinador.ingresarInfo(ide,nombre,sintomas,tratamiento,especialista)
+            QMessageBox.information(self,"" ,"¡Enfermedad ingresada a la base con éxito!")
     
     def cargarImagen(self):
         options = QFileDialog.Options()

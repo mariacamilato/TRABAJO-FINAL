@@ -1,6 +1,5 @@
 import mysql.connector
 import random  
-import cv2
 class modelo: 
     def __init__(self, nombre, sintomas, especialista, tratamiento, id_enfermedad ):
         self.__login = "admin123"
@@ -65,11 +64,19 @@ class modelo:
         return self.__tratamiento
     
     def agregar_enfermedad(self,id_enfermedad,nombre, sintomas,especialista,tratamiento):
-        sql = "INSERT INTO enfermedades (id_enfermedad,nombre, sintomas, especialista, tratamiento) VALUES (%s, %s, %s, %s, %s)"
-        values = (id_enfermedad,nombre,sintomas,especialista,tratamiento)
-        self.__cursor.execute(sql, values)
-        self.__cnx.commit()
-        return "Enfermedad agregada con éxito."
+        sql_check = "SELECT id_enfermedad FROM enfermedades WHERE id_enfermedad = %s"
+        value_check = (id_enfermedad,)
+        self.__cursor.execute(sql_check, value_check)
+        existing_id = self.__cursor.fetchone()
+        if existing_id:
+            return "Error: Ya existe una enfermedad con el mismo ID."
+        else:
+            sql = "INSERT INTO enfermedades (id_enfermedad, nombre, sintomas, especialista, tratamiento) VALUES (%s, %s, %s, %s, %s)"
+            values = (id_enfermedad, nombre, sintomas, especialista, tratamiento)
+            self.__cursor.execute(sql, values)
+            self.__cnx.commit()
+            
+            return "Enfermedad agregada con éxito."
 
     def borrar_enfermedad(self, id_enfermedad):
         sql = "DELETE FROM enfermedades WHERE id_enfermedad = %s"
