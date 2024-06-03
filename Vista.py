@@ -425,14 +425,24 @@ class agregrar_E(QMainWindow):
     def __init__(self,ppal=None):
         super().__init__(ppal)
         loadUi("agregar.ui",self)
+        self.setWindowFlags(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
         self.setup()
     
     def setup(self):
         self.GUARDAR.clicked.connect(self.guardarEnfermedad)
         self.GUARDAR_IMAGEN.clicked.connect(self.cargarImagen)
+        self.minimizar.clicked.connect(self.minimizarVentana)
+        self.salir.clicked.connect(self.salirVentana)
     
     def set_coordinador(self, coordinador):
         self.coordinador = coordinador
+    
+    def minimizarVentana(self):
+            self.showMinimized()
+        
+    def salirVentana(self):
+        self.hide()
     
     def guardarEnfermedad(self):
         ide=self.codigo.text()
@@ -463,13 +473,23 @@ class buscar_E(QMainWindow):
     def __init__(self,ppal=None):
         super().__init__(ppal)
         loadUi("buscar.ui",self)
+        self.setWindowFlags(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
         self.setup()
     
     def setup(self):
         self.BUSCAR.clicked.connect(self.buscarEnfermedad)
+        self.minimizar.clicked.connect(self.minimizarVentana)
+        self.salir.clicked.connect(self.salirVentana)
     
     def set_coordinador(self, coordinador):
         self.coordinador = coordinador
+    
+    def minimizarVentana(self):
+            self.showMinimized()
+        
+    def salirVentana(self):
+        self.hide()
     
     def buscarEnfermedad(self):
         nombre=self.nombre.text()
@@ -483,13 +503,23 @@ class borrar_E(QMainWindow):
     def __init__(self,ppal=None):
         super().__init__(ppal)
         loadUi("borrar.ui",self)
+        self.setWindowFlags(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
         self.setup()
     
     def setup(self):
         self.BORRAR.clicked.connect(self.borrarEnfermedad)
+        self.minimizar.clicked.connect(self.minimizarVentana)
+        self.salir.clicked.connect(self.salirVentana)
     
     def set_coordinador(self, coordinador):
         self.coordinador = coordinador
+    
+    def minimizarVentana(self):
+            self.showMinimized()
+        
+    def salirVentana(self):
+        self.hide()
     
     def borrarEnfermedad(self):
         codigo=self.CODIGO.text()
