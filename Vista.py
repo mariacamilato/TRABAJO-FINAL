@@ -89,7 +89,7 @@ class Plataforma(QMainWindow):
     def pageInicio(self):
         self.stackedWidget.setCurrentIndex(0)
 
-    def pageExplora(self):
+    def pageExplora(self):##################################
         self.stackedWidget.setCurrentIndex(1)
         self.frontal.clicked.connect(self.mostrarFrontal)
         self.parietal.clicked.connect(self.mostrarParietal)
@@ -134,7 +134,30 @@ class Plataforma(QMainWindow):
         ventana.show()
         ventana.mostrar()
     
-    def pageRetate(self):
+    def pageInvestiga(self):##################################
+            self.stackedWidget.setCurrentIndex(3)
+            self.agregar.clicked.connect(self.agregar_enfermedad)
+            self.buscar.clicked.connect(self.buscar_enfermedad)
+            self.borrar.clicked.connect(self.borrar_enfermedad )  
+
+    def agregar_enfermedad(self):
+        ventana = agregrar_E(self)
+        ventana.set_coordinador(self.coordinador)
+        ventana.show()
+    
+
+    def buscar_enfermedad(self):
+        ventana = buscar_E(self)
+        ventana.set_coordinador(self.coordinador)
+        ventana.show()
+        ventana.mostrar() 
+    
+    def borrar_enfermedad(self):
+        ventana = borrar_E(self)
+        ventana.set_coordinador(self.coordinador)
+        ventana.show()
+        
+    def pageRetate(self):##################################
         self.stackedWidget.setCurrentIndex(2)
         pregunta = self.coordinador.preguntaLanzar()
         self.preguntarosa = pregunta[0] 
@@ -150,9 +173,6 @@ class Plataforma(QMainWindow):
         self.confirmar3.clicked.connect(self.validar_respuestaverde)
         self.confirmar4.clicked.connect(self.validar_respuestaazul)
        
-    def pageInvestiga(self):
-            self.stackedWidget.setCurrentIndex(3)
-
     def validar_respuestarosa(self):
         respuesta_usuario = self.respuesta1.text().upper()
         if self.preguntarosa == "¿Cuál es el lóbulo encargado de los procesos cognitivos complejos?" and respuesta_usuario == "LOBULO FRONTAL":
@@ -403,6 +423,31 @@ class darInfoEspinal(QMainWindow):
             resultado=self.coordinador.extraer_info(6)
             self.informacion.setText(str(resultado))
 
+class agregrar_E(QMainWindow):
+    def __init__(self,ppal=None):
+        super().__init__(ppal)
+        loadUi("agregar.ui",self)
+        self.setup()
+    
+    def setup(self):
+        self.GUARDAR.clicked.connect(self.guardarEnfermedad)
+    
+    def set_coordinador(self, coordinador):
+        self.coordinador = coordinador
+    
+    def guardarEnfermedad(self):
+        ide=self.codigo.text()
+        nombre=self.nombre.text()
+        sintomas=self.sintomas.text()
+        tratamiento=self.tratamiento.text()
+        especialista=self.especialista.text()
+        self.coordinador.ingresarInfo(ide,nombre,sintomas,tratamiento,especialista)
+        QMessageBox.information(self,"" ,"¡Enfermedad ingresada a la base con éxito!")
+    
+class buscar_E(QMainWindow):
+    pass
+class borrar_E(QMainWindow):
+    pass
 
     
 

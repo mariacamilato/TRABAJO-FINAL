@@ -20,12 +20,15 @@ class Coordinador:
     def preguntaLanzar(self):
         preguntas=self.__miModelo.pregunta()
         return preguntas
+    
+    def ingresarInfo(self,a,b,c,d,e):
+        self.__miModelo.agregar_enfermedad(a,b,c,d,e)
 
 
 def main():
     app=QApplication(sys.argv)
     vista=Login()
-    modelo_instancia=modelo("e","e","e","e","e","e","e","e")
+    modelo_instancia=modelo("e","e","e","e","e")
     coordinador= Coordinador(vista,modelo_instancia)
     vista.set_coordinador(coordinador)
     vista.show()

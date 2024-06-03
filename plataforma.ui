@@ -1170,7 +1170,7 @@ QPushButton:hover {
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QPushButton" name="confirmar1_2">
+              <widget class="QPushButton" name="agregar">
                <property name="geometry">
                 <rect>
                  <x>0</x>
@@ -1215,7 +1215,7 @@ QPushButton:hover {
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QPushButton" name="confirmar1_3">
+              <widget class="QPushButton" name="buscar">
                <property name="geometry">
                 <rect>
                  <x>0</x>
@@ -1259,7 +1259,7 @@ QPushButton:hover {
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QPushButton" name="confirmar1_4">
+              <widget class="QPushButton" name="borrar">
                <property name="geometry">
                 <rect>
                  <x>0</x>

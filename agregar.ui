@@ -422,7 +422,7 @@ QPushButton:hover {
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="BORRAR">
+    <widget class="QPushButton" name="GUARDAR">
      <property name="geometry">
       <rect>
        <x>170</x>
