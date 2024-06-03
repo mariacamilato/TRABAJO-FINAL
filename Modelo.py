@@ -80,13 +80,14 @@ class modelo:
 
     def buscar_enfermedad(self, nombre):
         sql = "SELECT * FROM enfermedades WHERE id_enfermedad = %s"
+        nombre=nombre.lower()
         value = (nombre,)
         self.__cursor.execute(sql, value)
         result = self.__cursor.fetchone()
         if result:
-            print("Enfermedad encontrada:", result)
+            return result
         else:
-            print("Enfermedad no encontrada.")
+            return "Enfermedad no encontrada."
     
 
 

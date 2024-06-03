@@ -452,9 +452,44 @@ class agregrar_E(QMainWindow):
             self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), aspectRatioMode=True))
     
 class buscar_E(QMainWindow):
-    pass
+    def __init__(self,ppal=None):
+        super().__init__(ppal)
+        loadUi("buscar.ui",self)
+        self.setup()
+    
+    def setup(self):
+        self.BUSCAR.clicked.connect(self.buscarEnfermedad)
+    
+    def set_coordinador(self, coordinador):
+        self.coordinador = coordinador
+    
+    def buscarEnfermedad(self):
+        nombre=self.nombre.text()
+        resultado=self.coordinador.buscarEnfermedad(nombre)
+        if resultado == "Enfermedad no encontrada.":
+            QMessageBox.information(self,"" ,"¡No hay ningúna enfermedad que coincida!")
+        else:
+            self.informacion.setText(str(resultado))
+
 class borrar_E(QMainWindow):
-    pass
+    def __init__(self,ppal=None):
+        super().__init__(ppal)
+        loadUi("borrar.ui",self)
+        self.setup()
+    
+    def setup(self):
+        self.BORRAR.clicked.connect(self.borrarEnfermedad)
+    
+    def set_coordinador(self, coordinador):
+        self.coordinador = coordinador
+    
+    def borrarEnfermedad(self):
+        codigo=self.CODIGO.text()
+        resultado=self.coordinador.borrarEnfermedad(codigo)
+        if resultado == "Enfermedad borrada con éxito.":
+            QMessageBox.information(self,"" ,"¡Enfermedad borrada con éxito de la base!")
+        else:
+            QMessageBox.information(self,"" ,"¡No hay ningúna enfermedad que coincida!")
 
     
 

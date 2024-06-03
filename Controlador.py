@@ -23,6 +23,14 @@ class Coordinador:
     
     def ingresarInfo(self,a,b,c,d,e):
         self.__miModelo.agregar_enfermedad(a,b,c,d,e)
+    
+    def buscarEnfermedad(self,nombre):
+        resultado=self.__miModelo.buscar_enfermedad(nombre)
+        return resultado
+    
+    def borrarEnfermedad(self,ide):
+        resultado=self.__miModelo.borrar_enfermedad(ide)
+        return resultado
 
 
 def main():
