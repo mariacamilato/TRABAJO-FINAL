@@ -449,7 +449,7 @@ class agregrar_E(QMainWindow):
         fileName, _ = QFileDialog.getOpenFileName(self, "Selecciona una imagen", "", "Images (*.png *.xpm *.jpg *.jpeg)", options=options)
         if fileName:
             pixmap = QPixmap(fileName)
-            self.label_2.setPixmap(pixmap.scaled(self.label_2.size(), aspectRatioMode=True))
+            self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), aspectRatioMode=True))
     
 class buscar_E(QMainWindow):
     pass

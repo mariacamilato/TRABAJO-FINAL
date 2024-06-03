@@ -402,7 +402,7 @@ QPushButton:hover {
       <string>GUARDAR DATOS</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_IMAGEN">
      <property name="geometry">
       <rect>
        <x>570</x>
