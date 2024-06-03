@@ -75,13 +75,14 @@ border-radius: 15px;
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>150</y>
+        <y>140</y>
         <width>261</width>
-        <height>261</height>
+        <height>271</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 170, 127);</string>
+       <string notr="true">background-color: rgb(255, 170, 127);
+font: 75 14pt &quot;Segoe Script&quot;;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="BUSCAR">

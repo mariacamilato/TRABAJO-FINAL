@@ -91,9 +91,8 @@ class modelo:
         self.__cnx.commit()
         return "Enfermedad borrada"
 
-
     def buscar_enfermedad(self, nombre):
-        sql = "SELECT * FROM enfermedades WHERE id_enfermedad = %s"
+        sql = "SELECT * FROM enfermedades WHERE nombre = %s"
         nombre=nombre.lower()
         value = (nombre,)
         self.__cursor.execute(sql, value)
