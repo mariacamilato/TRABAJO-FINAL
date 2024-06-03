@@ -1,5 +1,6 @@
 import mysql.connector
 import random  
+import cv2
 class modelo: 
     def __init__(self, nombre, sintomas, especialista, tratamiento, id_enfermedad ):
         self.__login = "admin123"
@@ -77,9 +78,9 @@ class modelo:
         self.__cnx.commit()
         return "Enfermedad borrada con éxito."
 
-    def buscar_enfermedad(self, id_enfermedad):
+    def buscar_enfermedad(self, nombre):
         sql = "SELECT * FROM enfermedades WHERE id_enfermedad = %s"
-        value = (id_enfermedad,)
+        value = (nombre,)
         self.__cursor.execute(sql, value)
         result = self.__cursor.fetchone()
         if result:
@@ -87,6 +88,8 @@ class modelo:
         else:
             print("Enfermedad no encontrada.")
     
+
+
 
     
 

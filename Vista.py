@@ -1,6 +1,6 @@
 import sys 
-from PyQt5.QtWidgets import QApplication,QMainWindow, QDialog, QMessageBox,QLineEdit,QTextEdit,QWidget 
-from PyQt5.QtGui import QRegExpValidator, QIntValidator
+from PyQt5.QtWidgets import QApplication,QMainWindow, QDialog, QMessageBox,QLineEdit,QTextEdit,QWidget,QFileDialog 
+from PyQt5.QtGui import QRegExpValidator, QIntValidator, QPixmap 
 from PyQt5.QtCore import Qt,QRegExp
 from PyQt5.uic import loadUi
 
@@ -430,6 +430,7 @@ class agregrar_E(QMainWindow):
     
     def setup(self):
         self.GUARDAR.clicked.connect(self.guardarEnfermedad)
+        self.GUARDAR_IMAGEN.clicked.connect(self.cargarImagen)
     
     def set_coordinador(self, coordinador):
         self.coordinador = coordinador
@@ -438,10 +439,17 @@ class agregrar_E(QMainWindow):
         ide=self.codigo.text()
         nombre=self.nombre.text()
         sintomas=self.sintomas.text()
+        especialista=self.especialistas.text()
         tratamiento=self.tratamiento.text()
-        especialista=self.especialista.text()
         self.coordinador.ingresarInfo(ide,nombre,sintomas,tratamiento,especialista)
         QMessageBox.information(self,"" ,"¡Enfermedad ingresada a la base con éxito!")
+    
+    def cargarImagen(self):
+        options = QFileDialog.Options()
+        fileName, _ = QFileDialog.getOpenFileName(self, "Selecciona una imagen", "", "Images (*.png *.xpm *.jpg *.jpeg)", options=options)
+        if fileName:
+            pixmap = QPixmap(fileName)
+            self.label_2.setPixmap(pixmap.scaled(self.label_2.size(), aspectRatioMode=True))
     
 class buscar_E(QMainWindow):
     pass
