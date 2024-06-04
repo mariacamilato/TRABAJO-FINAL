@@ -64,6 +64,9 @@ padding-bottom:7px;
 border-radius: 15px;
 </string>
       </property>
+      <property name="inputMask">
+       <string>99999</string>
+      </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
@@ -89,6 +92,9 @@ color:rgba(0,0,0,240);
 padding-bottom:7px; 
 border-radius: 15px;
 </string>
+      </property>
+      <property name="inputMask">
+       <string>&gt;AAAAAAAAAAAAAAAAAAAAAAAAAAA</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

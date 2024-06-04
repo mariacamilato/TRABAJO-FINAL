@@ -461,7 +461,7 @@ class agregrar_E(QMainWindow):
         sintomas=self.sintomas.text()
         especialista=self.especialistas.text()
         tratamiento=self.tratamiento.text()
-        resultado=self.coordinador.ingresarInfo(ide,nombre,sintomas,tratamiento,especialista)
+        resultado=self.coordinador.ingresarInfo(ide,nombre,sintomas,especialista,tratamiento)
         if resultado == "Error: Ya existe una enfermedad con el mismo ID.":
             QMessageBox.information(self,"" ,"Error: Ya existe una enfermedad con el mismo ID.")
         else:
@@ -470,36 +470,16 @@ class agregrar_E(QMainWindow):
             sintomas=self.sintomas.text()
             especialista=self.especialistas.text()
             tratamiento=self.tratamiento.text()
-            self.coordinador.ingresarInfo(ide,nombre,sintomas,tratamiento,especialista)
+            self.coordinador.ingresarInfo(ide,nombre,sintomas,especialista,tratamiento)
             QMessageBox.information(self,"" ,"¡Enfermedad ingresada a la base con éxito!")
     
-    #def cargarImagen(self):
-     #   options = QFileDialog.Options()
-      #  fileName, _ = QFileDialog.getOpenFileName(self, "Selecciona una imagen", "", "Images (*.png *.xpm *.jpg *.jpeg)", options=options)
-       # if fileName:
-        #    pixmap = QPixmap(fileName)
-         #   self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), aspectRatioMode=True))
     def cargarImagen(self):
         options = QFileDialog.Options()
-        fileName,_ = QFileDialog.getOpenFileName(self, "Selecciona una imagen", "", "Imagenes (*.png *.jpg)", options=options)
+        fileName, _ = QFileDialog.getOpenFileName(self, "Selecciona una imagen", "", "Images (*.png *.xpm *.jpg *.jpeg)", options=options)
         if fileName:
-            pixmap = QPixmap(fileName)
-            self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), aspectRatioMode = True))
-
-            #Binarizar
-            imagen = cv2.imread(fileName)
-            imagen_binarizada = cv2.threshold(cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY), 210, 255, cv2.THRESH_BINARY[1])
-
-            #guardar imagen
-            carpeta_imagenes = os.path.join(os.path.dirname(__file__), "imagenes")
-            if not os.path.existis(carpeta_imagenes):
-                os.makedirs(carpeta_imagenes)
-            ruta_guardado = os.path.join(carpeta_imagenes, os.path.basename(fileName))
-            cv2.imwrite(ruta_guardado, imagen_binarizada)
-            print(f"Imagen guardada en: {ruta_guardado}")
-
-
-
+                pixmap = QPixmap(fileName)
+                self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), aspectRatioMode=True))
+    
 class buscar_E(QMainWindow):
     def __init__(self,ppal=None):
         super().__init__(ppal)
@@ -528,7 +508,8 @@ class buscar_E(QMainWindow):
         if resultado is None:
             QMessageBox.information(self,"" ,"¡No hay ningúna enfermedad que coincida!")
         else:
-            self.informacion.setText(str(resultado))
+            detalles = "\n".join([f"NOMBRE: {enfermedad['NOMBRE']}\nSINTOMAS: {enfermedad['SINTOMAS']}\nESPECIALISTA: {enfermedad['ESPECIALISTA']}\nTRATAMIENTO: {enfermedad['TRATAMIENTO']}" for enfermedad in resultado])
+            self.informacion.setText(detalles)
 
 class borrar_E(QMainWindow):
     def __init__(self,ppal=None):

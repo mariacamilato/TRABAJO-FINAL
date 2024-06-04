@@ -95,14 +95,23 @@ class modelo:
 
     def buscar_enfermedad(self, nombre):
         sql = "SELECT * FROM enfermedades WHERE LOWER(nombre) = %s"
-        nombre=nombre.lower()
         value = (nombre,)
         self.__cursor.execute(sql, value)
         result = self.__cursor.fetchall()
+        
         if result:
-           return result 
-        else:
-            None
+            enfermedades = []
+            for row in result:
+                enfermedad = {
+                    'NOMBRE': row[1],
+                    'SINTOMAS': row[2],
+                    'ESPECIALISTA': row[3],
+                    'TRATAMIENTO': row[4]
+                }
+                enfermedades.append(enfermedad)
+            return enfermedades
+        return None
+        
            #print('NOMBRE: '+ result[2] if result else None)
            #print('SINTOMAS: '+ result[3] if result else None)
            #print('ESPECIALISTA: '+ result[4] if result else None)
