@@ -28,10 +28,12 @@ class modelo:
             return "USUARIO INVALIDO"
     
     def extraer_info(self,id_):
-        sql = "select * from general  where ID="+str(id_)   
+        sql = "select definicion from general  where ID="+str(id_)   
         self.__cursor.execute(sql)
         results = self.__cursor.fetchall()
-        return results
+        for i in results:
+            return "DEFINICIÓN: " + i[0]
+        
 
     def pregunta(self):
        preguntas = [
