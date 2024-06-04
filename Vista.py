@@ -1,13 +1,14 @@
-from PyQt5.QtWidgets import QApplication,QMainWindow, QDialog, QMessageBox,QLineEdit,QTextEdit,QWidget,QFileDialog,QLabel 
+from PyQt5.QtWidgets import QVBoxLayout,QApplication,QMainWindow, QDialog, QMessageBox,QLineEdit,QTextEdit,QWidget,QFileDialog,QLabel 
 from PyQt5.QtGui import QRegExpValidator, QIntValidator, QPixmap 
 from PyQt5.QtCore import Qt,QRegExp
 from PyQt5.uic import loadUi
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel
-from PySide6.QtGui import QMovie
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox, QLabel, QWidget
 from PyQt5.QtGui import QMovie
 from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
+import os 
+from PIL import Image
+import cv2
 
 class Login(QWidget):
     def __init__(self,ppal=None, ):
@@ -75,7 +76,7 @@ class Plataforma(QMainWindow):
         self.explora.clicked.connect(self.pageExplora)
         self.retate.clicked.connect(self.pageRetate)
         self.investiga.clicked.connect(self.pageInvestiga)
-    
+
     def set_coordinador(self, coordinador):
         self.coordinador = coordinador
     
@@ -472,13 +473,33 @@ class agregrar_E(QMainWindow):
             self.coordinador.ingresarInfo(ide,nombre,sintomas,tratamiento,especialista)
             QMessageBox.information(self,"" ,"¡Enfermedad ingresada a la base con éxito!")
     
+    #def cargarImagen(self):
+     #   options = QFileDialog.Options()
+      #  fileName, _ = QFileDialog.getOpenFileName(self, "Selecciona una imagen", "", "Images (*.png *.xpm *.jpg *.jpeg)", options=options)
+       # if fileName:
+        #    pixmap = QPixmap(fileName)
+         #   self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), aspectRatioMode=True))
     def cargarImagen(self):
         options = QFileDialog.Options()
-        fileName, _ = QFileDialog.getOpenFileName(self, "Selecciona una imagen", "", "Images (*.png *.xpm *.jpg *.jpeg)", options=options)
+        fileName,_ = QFileDialog.getOpenFileName(self, "Selecciona una imagen", "", "Imagenes (*.png *.jpg)", options=options)
         if fileName:
             pixmap = QPixmap(fileName)
-            self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), aspectRatioMode=True))
-    
+            self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), aspectRatioMode = True))
+
+            #Binarizar
+            imagen = cv2.imread(fileName)
+            imagen_binarizada = cv2.threshold(cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY), 210, 255, cv2.THRESH_BINARY[1])
+
+            #guardar imagen
+            carpeta_imagenes = os.path.join(os.path.dirname(__file__), "imagenes")
+            if not os.path.existis(carpeta_imagenes):
+                os.makedirs(carpeta_imagenes)
+            ruta_guardado = os.path.join(carpeta_imagenes, os.path.basename(fileName))
+            cv2.imwrite(ruta_guardado, imagen_binarizada)
+            print(f"Imagen guardada en: {ruta_guardado}")
+
+
+
 class buscar_E(QMainWindow):
     def __init__(self,ppal=None):
         super().__init__(ppal)

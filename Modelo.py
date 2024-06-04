@@ -94,13 +94,20 @@ class modelo:
         return "Enfermedad borrada"
 
     def buscar_enfermedad(self, nombre):
-        sql = "SELECT * FROM enfermedades WHERE nombre = %s"
+        sql = "SELECT * FROM enfermedades WHERE LOWER(nombre) = %s"
         nombre=nombre.lower()
         value = (nombre,)
         self.__cursor.execute(sql, value)
-        result = self.__cursor.fetchone()
+        result = self.__cursor.fetchall()
         if result:
-           return result if result else None
+           return result 
+        else:
+            None
+           #print('NOMBRE: '+ result[2] if result else None)
+           #print('SINTOMAS: '+ result[3] if result else None)
+           #print('ESPECIALISTA: '+ result[4] if result else None)
+           #print('TRATAMIENTO: '+ result[5] if result else None)
+                  
 
 
     
