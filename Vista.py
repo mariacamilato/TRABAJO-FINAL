@@ -5,10 +5,9 @@ from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox, QLabel, QWidget
 from PyQt5.QtGui import QMovie
 from PyQt5.QtCore import Qt
-from PyQt5.uic import loadUi
-import os 
+from PyQt5.uic import loadUi 
 from PIL import Image
-import cv2
+
 
 class Login(QWidget):
     def __init__(self,ppal=None, ):

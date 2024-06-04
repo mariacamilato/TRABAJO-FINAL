@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>825</width>
+    <width>836</width>
     <height>509</height>
    </rect>
   </property>
@@ -94,7 +94,7 @@ border-radius: 15px;
 </string>
       </property>
       <property name="inputMask">
-       <string>&gt;AAAAAAAAAAAAAAAAAAAAAAAAAAA</string>
+       <string>&gt;&gt;AAAAAAAAAA;_</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -459,7 +459,7 @@ border-radius: 15px;
      <property name="geometry">
       <rect>
        <x>580</x>
-       <y>360</y>
+       <y>340</y>
        <width>201</width>
        <height>31</height>
       </rect>
@@ -490,6 +490,41 @@ QPushButton:hover {
       <string>CARGAR IMAGEN</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="BINARIZAR">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>380</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    font: 75 12pt &quot;Times New Roman&quot;;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-bottom: 2px solid rgba(46, 82, 101, 200);
+    color: rgba(0, 0, 0, 240);
+    padding-bottom: 7px;
+    border-radius: 15px;
+}
+
+QPushButton:hover {
+  
+	background-color: rgb(124, 124, 124);
+}</string>
+     </property>
+     <property name="text">
+      <string>BINARIZAR</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -497,7 +532,7 @@ QPushButton:hover {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>825</width>
+     <width>836</width>
      <height>21</height>
     </rect>
    </property>

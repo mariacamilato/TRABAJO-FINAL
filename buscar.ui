@@ -65,7 +65,7 @@ border-radius: 15px;
 </string>
       </property>
       <property name="inputMask">
-       <string>&gt;AAAAAAAAAAAAAAAAAAAAAAAAAAA</string>
+       <string>&gt;AAAAAAAAAA;_</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
