@@ -11,7 +11,7 @@ class Coordinador:
     def validar(self,usuario,contraseña):
         resultado=self.__miModelo.Validar_usuario(usuario,contraseña)
         self.__miVista.mensaje(resultado)
-        return resultado
+        return resultado 
     
     def extraer_info(self,id):
         resultado=self.__miModelo.extraer_info(id)
