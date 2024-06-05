@@ -32,6 +32,10 @@ class Coordinador:
     def borrarEnfermedad(self,ide):
         resultado=self.__miModelo.borrar_enfermedad(ide)
         return resultado
+    
+    def binarizar(self,ruta):
+        resultado=self.__miModelo.BinarizarImagen(ruta)
+        return resultado 
 
 def main():
     app=QApplication(sys.argv)

@@ -3,10 +3,11 @@ from PyQt5.QtGui import QRegExpValidator, QIntValidator, QPixmap
 from PyQt5.QtCore import Qt,QRegExp
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox, QLabel, QWidget
-from PyQt5.QtGui import QMovie
+from PyQt5.QtGui import QMovie, QImage
 from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi 
 from PIL import Image
+import matplotlib.pyplot as plt 
 
 
 class Login(QWidget):
@@ -442,6 +443,7 @@ class agregrar_E(QMainWindow):
     def setup(self):
         self.GUARDAR.clicked.connect(self.guardarEnfermedad)
         self.GUARDAR_IMAGEN.clicked.connect(self.cargarImagen)
+        self.BINARIZAR.clicked.connect(self.BinarizarImagen)
         self.minimizar.clicked.connect(self.minimizarVentana)
         self.salir.clicked.connect(self.salirVentana)
     
@@ -476,9 +478,22 @@ class agregrar_E(QMainWindow):
         options = QFileDialog.Options()
         fileName, _ = QFileDialog.getOpenFileName(self, "Selecciona una imagen", "", "Images (*.png *.xpm *.jpg *.jpeg)", options=options)
         if fileName:
-                pixmap = QPixmap(fileName)
-                self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), aspectRatioMode=True))
-    
+            pixmap = QPixmap(fileName)
+            self.label_IMAGEN.setPixmap(pixmap.scaled(self.label_IMAGEN.size(), Qt.KeepAspectRatio))
+            self.currentImage = fileName 
+            
+    def BinarizarImagen(self):
+        ruta = self.campo_ruta.text()
+        resultado=self.coordinador.binarizar(ruta)
+        plt.figure(figsize=(15, 8), facecolor="lightblue")
+        plt.subplot(1, 1, 1)
+        plt.imshow(resultado, cmap='gray')
+        plt.title("IMAGEN BINARIZADA")
+        plt.show()
+
+    def mostrarError(self, mensaje):
+        QMessageBox.critical(self, "Error", mensaje)
+
 class buscar_E(QMainWindow):
     def __init__(self,ppal=None):
         super().__init__(ppal)

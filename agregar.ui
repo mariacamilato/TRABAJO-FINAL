@@ -459,7 +459,7 @@ border-radius: 15px;
      <property name="geometry">
       <rect>
        <x>580</x>
-       <y>340</y>
+       <y>330</y>
        <width>201</width>
        <height>31</height>
       </rect>
@@ -490,11 +490,39 @@ QPushButton:hover {
       <string>CARGAR IMAGEN</string>
      </property>
     </widget>
+    <widget class="QLineEdit" name="campo_ruta">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>370</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Times New Roman&quot;;
+background-color: rgb(255, 255, 255);
+border:none;
+border-bottom:2px solid rgba(46,82,101,200);
+color:rgba(0,0,0,240);
+padding-bottom:7px; 
+border-radius: 15px;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string>INGRESA LA RUTA</string>
+     </property>
+    </widget>
     <widget class="QPushButton" name="BINARIZAR">
      <property name="geometry">
       <rect>
        <x>580</x>
-       <y>380</y>
+       <y>410</y>
        <width>201</width>
        <height>31</height>
       </rect>
@@ -518,7 +546,7 @@ QPushButton:hover {
 
 QPushButton:hover {
   
-	background-color: rgb(124, 124, 124);
+	background-color: rgb(255, 255, 0);
 }</string>
      </property>
      <property name="text">

@@ -1,5 +1,9 @@
 import mysql.connector
 import random  
+import cv2
+import numpy as np 
+import matplotlib  as plt 
+
 class modelo: 
     def __init__(self, nombre, sintomas, especialista, tratamiento, id_enfermedad ):
         self.__login = "admin123"
@@ -111,11 +115,18 @@ class modelo:
                 enfermedades.append(enfermedad)
             return enfermedades
         return None
-        
-           #print('NOMBRE: '+ result[2] if result else None)
-           #print('SINTOMAS: '+ result[3] if result else None)
-           #print('ESPECIALISTA: '+ result[4] if result else None)
-           #print('TRATAMIENTO: '+ result[5] if result else None)
+    
+    def BinarizarImagen(self,ruta):
+        imagen = cv2.imread(ruta)
+        if imagen is None:
+            raise ValueError("No se pudo cargar la imagen. Verifica la ruta y el formato del archivo.")
+        img = cv2.cvtColor(imagen, cv2.COLOR_BGR2RGB)
+        gris = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        mid = np.mean(gris)
+        _, imgB = cv2.threshold(gris, mid, 255, cv2.THRESH_BINARY)
+        return imgB
+
+
                   
 
 
