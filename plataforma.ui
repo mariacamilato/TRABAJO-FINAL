@@ -555,9 +555,6 @@ QPushButton:hover {
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap>9v0u.gif</pixmap>
-                 </property>
                  <property name="scaledContents">
                   <bool>true</bool>
                  </property>

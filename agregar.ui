@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>801</width>
-      <height>451</height>
+      <height>461</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -551,6 +551,25 @@ QPushButton:hover {
      </property>
      <property name="text">
       <string>BINARIZAR</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>400</y>
+       <width>471</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;PROCESO DE BINARIZACIÓN=Es un proceso bastante util,&lt;/p&gt;&lt;p&gt; en el procesamiento de imagenes médicas, &lt;/p&gt;&lt;p&gt;para llegar a diagnósticos concretos.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 8pt &quot;Segoe Script&quot;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#000000;&quot;&gt;BINARIZACIÓN=Es un proceso bastante útil,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#000000;&quot;&gt;en el procesamiento de imagenes médicas,para llegar a diagnósticos concretos.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>

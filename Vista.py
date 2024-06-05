@@ -76,6 +76,7 @@ class Plataforma(QMainWindow):
         self.explora.clicked.connect(self.pageExplora)
         self.retate.clicked.connect(self.pageRetate)
         self.investiga.clicked.connect(self.pageInvestiga)
+        self.pageInicio()
 
     def set_coordinador(self, coordinador):
         self.coordinador = coordinador
@@ -96,6 +97,8 @@ class Plataforma(QMainWindow):
         self.stackedWidget.setCurrentIndex(0)
         movie = QMovie("9v0u.gif")
         self.label_animation.setMovie(movie)
+        self.label_animation.setScaledContents(True)
+        movie.start()
 
     def pageExplora(self):##################################
         self.stackedWidget.setCurrentIndex(1)
