@@ -91,14 +91,11 @@ class Plataforma(QMainWindow):
     
     def salirVentana(self):
         self.hide()
-    
+       
     def pageInicio(self):
         self.stackedWidget.setCurrentIndex(0)
-        self.label_animation = self.findChild(QLabel, 'label_animation')
-        if self.label_animation: 
-            self.movie = QMovie("imagenes/9v0u.gif")
-            self.label_animation.setMovie(self.movie)
-            self.movie.start()
+        movie = QMovie("9v0u.gif")
+        self.label_animation.setMovie(movie)
 
     def pageExplora(self):##################################
         self.stackedWidget.setCurrentIndex(1)

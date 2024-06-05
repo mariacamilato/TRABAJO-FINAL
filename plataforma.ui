@@ -531,7 +531,7 @@ QPushButton:hover {
              <string notr="true">background-color: rgb(0, 0, 0);</string>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="inicio">
              <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -546,17 +546,17 @@ QPushButton:hover {
                 <widget class="QLabel" name="label_animation">
                  <property name="geometry">
                   <rect>
-                   <x>140</x>
+                   <x>130</x>
                    <y>120</y>
-                   <width>301</width>
-                   <height>311</height>
+                   <width>311</width>
+                   <height>321</height>
                   </rect>
                  </property>
                  <property name="text">
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>imagenes/9v0u.gif</pixmap>
+                  <pixmap>9v0u.gif</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -581,6 +581,8 @@ QPushButton:hover {
                   <bool>true</bool>
                  </property>
                 </widget>
+                <zorder>label_9</zorder>
+                <zorder>label_animation</zorder>
                </widget>
               </item>
              </layout>
